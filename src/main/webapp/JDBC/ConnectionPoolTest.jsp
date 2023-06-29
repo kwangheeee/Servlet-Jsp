@@ -1,7 +1,7 @@
+<%@page import="common.DbConnetionPool"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="javax.print.attribute.standard.PresentationDirection"%>
-<%@page import="common.DbConnetionPool"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -29,15 +29,15 @@
     
 -->
 	<%
-		Connection con = DbConnetionPool.getConnection();
-		PreparedStatement psmt = con.prepareStatement("select sysdate from dual");
-		ResultSet rs = psmt.executeQuery();
-		if(rs.next()){
-			out.print(rs.getString(1));
-		}
-		rs.close();
-		psmt.close();
-		con.close();
+			Connection con = DbConnetionPool.getConnection();
+			PreparedStatement psmt = con.prepareStatement("select sysdate from dual");
+			ResultSet rs = psmt.executeQuery();
+			if(rs.next()){
+		out.print(rs.getString(1));
+			}
+			rs.close();
+			psmt.close();
+			con.close();
 	%>
 </body>
 </html>
